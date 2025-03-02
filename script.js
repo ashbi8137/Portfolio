@@ -4,7 +4,10 @@ const texts = [
     'Program Facilitator',
     'Event Lead',
     'Tech Innovator',
-    'Community Builder'
+    'Community Builder',
+    'Android Developer',
+    'Web Developer',
+    
 ];
 let textIndex = 0;
 let charIndex = 0;
@@ -84,6 +87,7 @@ window.addEventListener('scroll', () => {
 // Add scroll reveal animations
 window.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
+    const techItems = document.querySelectorAll('.tech-tags span');
     
     const observerOptions = {
         root: null,
@@ -106,6 +110,18 @@ window.addEventListener('DOMContentLoaded', () => {
         section.style.transform = 'translateY(20px)';
         section.style.transition = 'all 0.5s ease-out';
         observer.observe(section);
+    });
+    
+    // Add staggered animation for tech items
+    techItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(10px)';
+        item.style.transition = `all 0.3s ease-out ${index * 0.1}s`;
+        
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 500 + (index * 100));
     });
 });
 
@@ -177,14 +193,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
     });
 });
-
-
-
-
-
-
-
-
 
 // Add this JavaScript for form submission and smooth scroll
 document.addEventListener('DOMContentLoaded', function() {

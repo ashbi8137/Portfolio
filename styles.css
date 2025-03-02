@@ -258,7 +258,7 @@ nav.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 110px;
+    padding-top: 120px; /* Increased from 80px to create a larger gap below navbar */
     background: linear-gradient(135deg, 
         rgba(2, 132, 199, 0.05) 0%,
         rgba(56, 189, 248, 0.05) 100%
@@ -318,8 +318,35 @@ nav.scrolled {
     max-width: 500px;
     margin: 1.5rem auto;
     font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-dark);
+    line-height: 1.8;
+    color: var(--text-light);
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.hero-description::before,
+.hero-description::after {
+    content: '"';
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--accent-color);
+    position: absolute;
+    opacity: 0.7;
+}
+
+.hero-description::before {
+    left: 0;
+    top: -0.5rem;
+}
+
+.hero-description::after {
+    right: 0;
+    bottom: -0.5rem;
 }
 
 .typing-text {
@@ -523,7 +550,7 @@ section {
 
 section h2 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-size: 36px;
     background: var(--gradient-1);
     -webkit-background-clip: text;
@@ -583,7 +610,96 @@ section h2 {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+
+/* Skills container that holds both technologies and skills */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+    .about-content {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-text {
+        margin-bottom: 2.5rem;
+        margin-top: 0.5rem; /* Reduced top margin on mobile */
+    }
+    
+    .skills-container {
+        margin-top: 1rem;
+    }
+    
+    .skills, .technologies {
+        margin-top: 2rem;
+    }
+}
+
+/* Technologies Section */
+.technologies h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.technologies h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.tech-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.2rem;
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(56, 189, 248, 0.12) 100%);
+    color: var(--primary-color);
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.tech-tags i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.tech-tags span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(56, 189, 248, 0.16) 100%);
 }
 
 /* Redesigned Professional Skills */
@@ -632,6 +748,44 @@ section h2 {
 .skill-tags span:hover::before {
     transform: scaleX(1);
     transform-origin: left;
+}
+
+/* New styling for about-text */
+.about-text {
+    position: relative;
+    padding: 0.5rem 0;
+    margin-top: 1.5rem;
+}
+
+.about-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-dark);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-align: justify;
+    padding: 0.5rem 1rem;
+    border-left: 3px solid var(--accent-color);
+    background: rgba(200, 180, 90, 0.05);
+    border-radius: 0 8px 8px 0;
+}
+
+.about-text p::first-letter {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--primary-color);
+    float: left;
+    margin-right: 0.2em;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.8;
+        text-align: left;
+    }
 }
 
 /* Skill Categories */
@@ -1475,7 +1629,7 @@ footer {
     }
 
     .hero {
-        padding-top: 60px;
+        padding-top: 120px; /* Increased from 80px to create a larger gap in mobile views */
     }
 
     .hero-text {
@@ -1488,7 +1642,23 @@ footer {
 
     .hero-description {
         font-size: 1rem;
-        padding: 0 1rem;
+        padding: 0 2rem;
+        line-height: 1.7;
+    }
+    
+    .hero-description::before,
+    .hero-description::after {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description::before {
+        left: 5px;
+        top: -5px;
+    }
+    
+    .hero-description::after {
+        right: 5px;
+        bottom: -5px;
     }
 
     .hero-buttons {
@@ -1511,6 +1681,24 @@ footer {
 
     section {
         padding: calc(var(--section-padding) * 0.5) 1rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-text {
+        margin-bottom: 2.5rem;
+        margin-top: 0.5rem; /* Reduced top margin on mobile */
+    }
+
+    .skills-container {
+        margin-top: 1rem;
+    }
+
+    .skills, .technologies {
+        margin-top: 2rem;
     }
 
     .project-grid,
@@ -1581,6 +1769,41 @@ footer {
         font-size: 0.9rem;
     }
     
+    /* Additional adjustments for about section on very small screens */
+    .about {
+        padding: 2rem 1.5rem;
+    }
+    
+    .about-content {
+        gap: 2.5rem; /* Increased from 1.5rem for more spacing */
+    }
+    
+    .about-text {
+        margin-bottom: 3rem; /* Increased spacing below about text */
+    }
+    
+    .skills-container {
+        margin-top: 1rem;
+        gap: 2rem;
+    }
+    
+    .skills, .technologies {
+        margin-top: 2.5rem; /* Increased spacing above skills */
+    }
+    
+    .skill-tags span, .tech-tags span {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .tech-tags {
+        gap: 8px;
+    }
+    
+    .tech-tags i {
+        font-size: 1rem;
+    }
+    
     .project-card,
     .event-card,
     .hackathon-card,
@@ -1631,16 +1854,6 @@ section#projects .project-card.featured h3,
     -webkit-text-fill-color: #000000 !important;
     background: none !important;
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    mobileMenuBtn.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-});
 
 /* ====================================
    Continuous Scrolling Background - Enhanced Clarity
