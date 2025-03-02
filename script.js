@@ -3,7 +3,6 @@ const typingText = document.querySelector('.typing-text');
 const texts = [
     'Program Facilitator',
     'Event Lead',
-    'Blockchain Enthusiast',
     'Tech Innovator',
     'Community Builder'
 ];
@@ -176,5 +175,46 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         const navLinks = document.querySelector('.nav-links');
         navLinks.classList.remove('active');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+
+
+
+
+
+
+
+
+// Add this JavaScript for form submission and smooth scroll
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Form submission handling
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simulate form submission
+        formMessage.classList.remove('error');
+        formMessage.classList.add('success');
+        formMessage.textContent = 'Message sent successfully!';
+        formMessage.style.display = 'block';
+        
+        // Clear form after submission
+        setTimeout(() => {
+            form.reset();
+            formMessage.style.display = 'none';
+        }, 3000);
     });
 });
