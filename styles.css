@@ -836,14 +836,30 @@ section h2 {
     margin-bottom: 0;
 }
 
-/* Completely remove project links/buttons */
+/* Project Links Styling */
 .project-links {
-    display: none !important; /* Force hide with !important to override any other styles */
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-/* Also target any individual button classes that might exist */
-.github-link, .live-link, .demo-link, .view-project, .project-link {
-    display: none !important; 
+/* Project Link Button Styling */
+.project-links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Featured Project Styling */
