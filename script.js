@@ -226,3 +226,60 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     });
 });
+
+// Improved lightbox functionality
+function openLightbox(imgSrc, imgAlt) {
+    console.log("Opening lightbox for: " + imgSrc); // Debug log
+    
+    // Get lightbox elements
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    // Set lightbox content
+    lightboxImg.src = imgSrc;
+    lightboxCaption.textContent = imgAlt;
+    
+    // Display lightbox
+    lightbox.style.display = 'flex';
+    
+    // Prevent page scrolling
+    document.body.style.overflow = 'hidden';
+    
+    // Add close event to background click
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Add escape key to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+}
+
+function closeLightbox() {
+    console.log("Closing lightbox"); // Debug log
+    
+    // Hide lightbox
+    document.getElementById('lightbox').style.display = 'none';
+    
+    // Re-enable page scrolling
+    document.body.style.overflow = 'auto';
+}
+
+// Make sure all images use this function
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Setting up lightbox listeners");
+    
+    // Apply to all clickable images across all sections
+    const clickableImages = document.querySelectorAll('.clickable-image');
+    clickableImages.forEach(function(img) {
+        img.onclick = function() {
+            openLightbox(this.src, this.alt);
+        };
+    });
+});
