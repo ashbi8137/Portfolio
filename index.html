@@ -16,10 +16,17 @@
             <div class="logo">
                 <a href="#">ashbin</a>
             </div>
-            <ul class="nav-links">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#hackathons">Hackathons</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -128,6 +135,8 @@
                     <div class="tech-tags">
                         <span><i class="fab fa-react"></i>React Native</span>
                         <span><i class="fab fa-js"></i>JavaScript</span>
+                        <span><i class="fab fa-react"></i>Next.js</span>
+                        <span><i class="fab fa-react"></i>Tailwind CSS</span>
                         <span><i class="fab fa-python"></i>Python</span>
                         <span><i class="fab fa-css3-alt"></i>CSS</span>
                         <span><i class="fas fa-database"></i>Supabase</span>
@@ -198,7 +207,7 @@
                     
                 </ul>
             </div>
-            
+    
             <div class="timeline-item">
                 <div class="company-header">
                     <div class="company-logo">
@@ -329,6 +338,17 @@
 
             <div class="hackathon-card">
                 <div class="hackathon-image">
+                    <img src="Images/hackathons/" alt="Hack for nothing" class="clickable-image" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="achievement-badge">🏆 Third Place</div>
+                <h3>Hack for nothing</h3>
+                <p class="track">Government Engineering College Thrissur</p>
+                <p>Secured third place in this prestigious hackathon, by building a fun website</p>
+                <span class="hackathon-date">2025</span>
+            </div>
+
+            <div class="hackathon-card">
+                <div class="hackathon-image">
                     <img src="Images/hackathons/EmergeXinnovate.jpg" alt="EMERGE-X INNOVATIVE Buildathon" class="clickable-image" onclick="openLightbox(this.src, this.alt)">
                 </div>
                 <h3>EMERGE-X INNOVATIVE Buildathon</h3>
@@ -433,7 +453,7 @@
                     <h3>ClaimIt</h3>
                     <span class="project-tag">Mobile App</span>
                     <span class="project-tag">React Native</span>
-                    <p>An Android lost and found application built with React Native and Supabase, helping users track and recover lost items efficiently. Currently in active development.</p>
+                    <p>ClaimIt users can track and recover lost items efficiently. Currently in active development.</p>
                     <div class="project-links">
                         <a href="https://github.com/ashbi8137/claimit" target="_blank">In Progress</a>
                         <a href="https://github.com/ashbi8137/claimit" target="_blank">GitHub</a>
@@ -443,8 +463,23 @@
 
             <div class="project-card">
                 <div class="project-content">
+                    <h3>Ente-Kadha</h3>
+                    <span class="project-tag">web app</span>
+                    <span class="project-tag">Next.js , Tailwind CSS</span>
+                    <p>Transform your search history into a beautiful personal story</p>
+                    <div class="project-links">
+                        <a href="https://nintekadha-eight.vercel.app/" target="_blank">View Page</a>
+                        <a href="https://github.com/ashbi8137/ninte-kadha-Front" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-content">
                     <h3>ICMBGSD2025 website</h3>
                     <span class="project-tag">UI / UX</span>
+                    <span class="project-tag">CSS , JS</span>
                     <p>The International Conference on Marine Biodiversity, Genomics, and Sustainable Development </p>
                     <div class="project-links">
                         <a href="https://icmbgsd-landing.vercel.app/" target="_blank">View Page</a>
@@ -452,6 +487,9 @@
                     </div>
                 </div>
             </div>
+
+
+           
 
             <div class="project-card">
                 <div class="project-content">
